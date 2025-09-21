@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <random>
+#include <RandomNumberGenerator.h>
 #include <vector>
 #include <sstream>
 
@@ -78,6 +78,6 @@ void readInput(const string& File, const string& Fileout) {
 // RANDOM GENERATOR DECTION
 
 int main() {
-	readInput("File.txt", "Fileout.txt");
+	readInput("input.txt", "Fileout.txt");
 
 }
