@@ -1,3 +1,4 @@
+// Compiler: g++ 11.2.0
 #include <iostream>
 #include <fstream>
 #include <string>
