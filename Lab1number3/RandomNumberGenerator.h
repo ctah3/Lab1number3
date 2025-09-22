@@ -1,4 +1,4 @@
-#ifdef RANDOM_NUMBER_GENERATOR_H
+#ifndef RANDOM_NUMBER_GENERATOR_H
 #define RANDOM_NUMBER_GENERATOR_H
 
 #include <vector>

@@ -1,6 +1,6 @@
 #include "RandomNumberGenerator.h"
 
-RandomNumberGenerator::RandomNumberGenerator(const std::vector<int>& numbers, const std::vector<int>& frequencies)
+RandomNumberGenerator::RandomNumberGenerator(const std::vector<int>& numbers, const std::vector<int>& frequencies):
 
 numbers(numbers) {
 if (numbers.size() != frequencies.size()) {
@@ -13,7 +13,7 @@ throw std::invalid_argument("Input vectors cannot be empty.");
 cumulativeFrequencies.reserve(frequencies.size());
 int currentCumulativeFrequency = 0;
 
-for (size_t i = 0, i <frequencies.size(); ++i) {
+for (size_t i = 0; i < frequencies.size(); ++i) {
 if (frequencies[i] <0) {
 throw std::invalid_argument("Frequencies cannot be negative.");
 }
@@ -32,16 +32,18 @@ rng.seed(rd());
 }
 
 int RandomNumberGenerator::operator()() {
-  if (totalFrequency == 0) {
-throw std::runtime_error("Cannot generate a number when total frequency is zero.");
-  }
+	if (totalFrequency == 0) {
+		throw std::runtime_error("Cannot generate a number when total frequency is zero.");
+	}
 
-std::uniform_int_distribution<int> dist(1, totalFrequency);
-int randomValue = dist(rng);
 
-for (size_t i =0, i <cumulativeFrequencies.size(); ++) {
-  if (randomValue <= cumulativeFrequencies[i]) {
-return numbers[i];
+	std::uniform_int_distribution<int> dist(1, totalFrequency);
+	int randomValue = dist(rng);
+
+	for (size_t i = 0; i < cumulativeFrequencies.size(); ++i) {
+		if (randomValue <= cumulativeFrequencies[i]) {
+			return numbers[i];
+		}
+	}
+	return numbers.back();
 }
-}
-return numbers.back();
