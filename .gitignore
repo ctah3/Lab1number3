@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+.gitignore
+.gitattributes
+
 # User-specific files
 *.rsuser
 *.suo
@@ -111,6 +114,8 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
+*.vcxproj
+*.sln
 
 # Visual Studio profiler
 *.psess
