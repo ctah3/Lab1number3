@@ -32,11 +32,7 @@ RandomNumberGenerator::RandomNumberGenerator(const std::vector<int>& numbers, co
 }
 
 int RandomNumberGenerator::operator()() {
-	if (totalFrequency == 0) {
-		throw std::runtime_error("Cannot generate a number when total frequency is zero.");
-	}
-
-
+	
 	std::uniform_int_distribution<int> dist(1, totalFrequency);
 	int randomValue = dist(rng);
 
