@@ -9,17 +9,17 @@
 
 class RandomNumberGenerator{
 public:
-RandomNumberGenerator(const std::vector<int>& numbers, const std::vector<int>& frequencies);
-int operator()();
+  RandomNumberGenerator(const std::vector<int>& numbers, const std::vector<int>& frequencies);
+  int operator()();
 
-int getTotalFrequency() const { return totalFrequency; }
+  int getTotalFrequency() const { return totalFrequency; }
 
 private:
-std::vector<int> numbers;
-std::vector<int> cumulativeFrequencies;
-int totalFrequency = 0;
+  std::vector<int> numbers;
+  std::vector<int> cumulativeFrequencies;
+  int totalFrequency = 0;
 
-std::mt19937 rng;
+  std::mt19937 rng;
 };
 
 #endif// RANDOM_NUMBER_GENERATOR_H
