@@ -41,5 +41,5 @@ int RandomNumberGenerator::operator()() {
 			return numbers[i];
 		}
 	}
-	return numbers.back();
+	throw std::logic_error("Internal logic error: Random value could not be mapped to a number.");
 }
