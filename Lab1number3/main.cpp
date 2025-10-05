@@ -56,7 +56,7 @@ bool readInput(const std::string& input, int& n,std::vector<int>& values, std::v
 		std::istringstream ss2(line);
 	{
 		int x;
-		while (ss2 >> x)
+		while (ss2 >> x) {
 			values.push_back(x);
 	}
 }
