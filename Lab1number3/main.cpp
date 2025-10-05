@@ -20,18 +20,18 @@ bool readLine(std::ifstream& inFile,std::string& line) {
 	return false;
 }
 
-bool readInput(const std::string& Input.txt, int& n,std::vector<int>& values, std::vector<int>& frequency) {
+bool readInput(const std::string& input.txt, int& n,std::vector<int>& values, std::vector<int>& frequency) {
 	std::string line;
-	std::ifstream inFile(Input.txt);
+	std::ifstream inFile(input.txt);
 	
 	if (!inFile.is_open()) {
-		std::cerr << "Error: Could not open input file: "'<< Input.txt <<"'.\n";
+		std::cerr << "Error: Could not open input file: "'<< input.txt <<"'.\n";
 		return false;
 	}
 
 	// reading n
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error:Missing or empty line for 'n' in"' <<Input.txt << "'.\n";
+		std::cerr << "Error:Missing or empty line for 'n' in"' <<input.txt << "'.\n";
 		return false;
 	}
 	std::istringstream ss1(line);
@@ -44,13 +44,13 @@ bool readInput(const std::string& Input.txt, int& n,std::vector<int>& values, st
 		return false;
 	}
 	if(!(ss1 >> std::ws) eof()) {
-		std::cerr << "Error: Extra characters after 'n' in '" << Input.txt << "'. Got: '" << line << '".\n";
+		std::cerr << "Error: Extra characters after 'n' in '" << input.txt << "'. Got: '" << line << '".\n";
 		return false;
 	}
 			
 	// reading values
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error: Missing or empty line for 'values' in'" <<Input.txt << "'.\n";
+		std::cerr << "Error: Missing or empty line for 'values' in'" <<input.txt << "'.\n";
 		return false;
 	}
 		std::istringstream ss2(line);
@@ -62,7 +62,7 @@ bool readInput(const std::string& Input.txt, int& n,std::vector<int>& values, st
 }
 
 if (values.empty()) {
-	std::cerr << "Error: No 'values' provided in '" << Input.txt << '".\n";
+	std::cerr << "Error: No 'values' provided in '" << input.txt << '".\n";
 		return false;
 	}
 if (!ss2.eof()) {
@@ -72,7 +72,7 @@ if (!ss2.eof()) {
 
 	//reading frequency
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error: Missing or empty line for 'frequency' in '" << Input.txt << '".\n";
+		std::cerr << "Error: Missing or empty line for 'frequency' in '" << input.txt << '".\n";
 		return false;
 	}
 	std::istringstream ss3(line);
@@ -83,7 +83,7 @@ if (!ss2.eof()) {
 		}
 	}
 	if (frequency.empty()) {
-		std::cerr << "Error: No 'frequency' provided in '" << Input.txt << '".\n";
+		std::cerr << "Error: No 'frequency' provided in '" << input.txt << '".\n";
 		return false;
 	}
 	if (!ss3.eof()) {
