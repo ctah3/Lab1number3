@@ -20,23 +20,23 @@ bool readLine(std::ifstream& inFile,std::string& line) {
 	return false;
 }
 
-bool readInput(const std::string& FileName, int& n,std::vector<int>& values, std::vector<int>& frequency) {
+bool readInput(const std::string& Input.txt, int& n,std::vector<int>& values, std::vector<int>& frequency) {
 	std::string line;
-	std::ifstream inFile(FileName);
+	std::ifstream inFile(Input.txt);
 	
 	if (!inFile.is_open()) {
-		std::cerr << "Error: Could not open input file: "'<< fileName <<"'.\n";
+		std::cerr << "Error: Could not open input file: "'<< Input.txt <<"'.\n";
 		return false;
 	}
 
 	// reading n
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error:Missing or empty line for 'n' in"' <<fileName << "'.\n";
+		std::cerr << "Error:Missing or empty line for 'n' in"' <<Input.txt << "'.\n";
 		return false;
 	}
 	std::istringstream ss1(line);
 	if (!(ss1 >> n)) {
-		std::cerr << "Error: Invalid format for 'n' (expected integer) in'" << fileName << "'. Got: '" << line << '".\n";
+		std::cerr << "Error: Invalid format for 'n' (expected integer) in'" << Input.txt << "'. Got: '" << line << '".\n";
 		return false;
 	}
 	if (n <= 0) {
@@ -44,13 +44,13 @@ bool readInput(const std::string& FileName, int& n,std::vector<int>& values, std
 		return false;
 	}
 	if(!(ss1 >> std::ws) eof()) {
-		std::cerr << "Error: Extra characters after 'n' in '" << fileName << "'. Got: '" << line << '".\n";
+		std::cerr << "Error: Extra characters after 'n' in '" << Input.txt << "'. Got: '" << line << '".\n";
 		return false;
 	}
 			
 	// reading values
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error: Missing or empty line for 'values' in'" <<fileName << "'.\n";
+		std::cerr << "Error: Missing or empty line for 'values' in'" <<Input.txt << "'.\n";
 		return false;
 	}
 		std::istringstream ss2(line);
