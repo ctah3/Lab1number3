@@ -62,7 +62,7 @@ bool readInput(const std::string& Input.txt, int& n,std::vector<int>& values, st
 }
 
 if (values.empty()) {
-	std::cerr << "Error: No 'values' provided in '" << fileName << '".\n";
+	std::cerr << "Error: No 'values' provided in '" << Input.txt << '".\n";
 		return false;
 	}
 if (!ss2.eof()) {
@@ -72,7 +72,7 @@ if (!ss2.eof()) {
 
 	//reading frequency
 	if (!readLine(inFile, line)) {
-		std::cerr << "Error: Missing or empty line for 'frequency' in '" << fileName << '".\n";
+		std::cerr << "Error: Missing or empty line for 'frequency' in '" << Input.txt << '".\n";
 		return false;
 	}
 	std::istringstream ss3(line);
@@ -83,7 +83,7 @@ if (!ss2.eof()) {
 		}
 	}
 	if (frequency.empty()) {
-		std::cerr << "Error: No 'frequency' provided in '" << fileName << '".\n";
+		std::cerr << "Error: No 'frequency' provided in '" << Input.txt << '".\n";
 		return false;
 	}
 	if (!ss3.eof()) {
