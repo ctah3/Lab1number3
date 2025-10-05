@@ -107,12 +107,12 @@ std::map<int, int> generateFrequencies(int n, RandomNumberGenerator& rng) {
 //CALCULATION SECTION
 double calculateMaxDifference(int n, const std::vector<int>& values, const std::vector<int>& frequency, const std::map<int, int>& actualFreq) {
 	
-	int totalGivenFrequencies = 0;
+	int totalGivenFrequency = 0;
 	for (int f : frequency) { // loop through all vector elements
-		totalGivenFrequencies += f; // making sum (5)
+		totalGivenFrequency += f; // making sum (5)
 	}
 
-	if (totalGivenFrequencies == 0) {
+	if (totalGivenFrequency == 0) {
 		std::cerr << " Warning: Total given frequency is zero, cannot calculate expected probabilities.\n";
 		return 0.0;
 	}
