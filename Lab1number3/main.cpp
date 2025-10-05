@@ -66,7 +66,7 @@ if (values.empty()) {
 		return false;
 	}
 if (!ss2.eof()) {
-	std::cerr << "Error: Invalid character(s) in 'values' line: '" << live << "'.\n";
+	std::cerr << "Error: Invalid character(s) in 'values' line: '" << line << "'.\n";
 	return false;
 }
 
