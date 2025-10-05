@@ -154,6 +154,7 @@ void printResult(int n, const std::vector<int>& values, const std::vector<int>& 
 	std::cout << "Given frequencies: ";
 	for (int x : frequency){
 		std::cout << x << " ";
+	}
 	std::cout << "\n";
 
 	std::cout << "Obtained frequencies: ";
