@@ -116,7 +116,7 @@ double calculateMaxDifference(int n, const std::vector<int>& values, const std::
 		std::cerr << " Warning: Total given frequency is zero, cannot calculate expected probabilities.\n";
 		return 0.0;
 	}
-	if "(n == 0) {
+	if (n == 0) {
 		return 0.0; 
 	}
 
