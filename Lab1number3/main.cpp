@@ -88,7 +88,7 @@ if (!ss2.eof()) {
 	}
 	if (!ss3.eof()) {
 		std::cerr << "Error: Invalid charagter(s) in 'frequency' line: '" << line << "'.\n";
-		return faise;
+		return false;
 	}
 
 return true;
