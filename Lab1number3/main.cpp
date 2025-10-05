@@ -43,7 +43,7 @@ bool readInput(const std::string& input, int& n,std::vector<int>& values, std::v
 		std::cerr << "Error: 'n' must be a positive integer. Got: " << n << ".\n";
 		return false;
 	}
-	if(!(ss1 >> std::ws) eof()) {
+	if(!(ss1 >> std::ws).eof()) {
 		std::cerr << "Error: Extra characters after 'n' in '" << input << "'. Got: '" << line << "'.\n";
 		return false;
 	}
