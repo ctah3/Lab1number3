@@ -58,40 +58,40 @@ bool readInput(const std::string& input, int& n,std::vector<int>& values, std::v
 		int x;
 		while (ss2 >> x) {
 			values.push_back(x);
+		}
 	}
-}
 
-if (values.empty()) {
-	std::cerr << "Error: No 'values' provided in '" << input << "'.\n";
-	return false;
-}
-if (!ss2.eof()) {
-	std::cerr << "Error: Invalid character(s) in 'values' line: '" << line << "'.\n";
-	return false;
-}
-
-//reading frequency
-if (!readLine(inFile, line)) {
-	std::cerr << "Error: Missing or empty line for 'frequency' in '" << input << "'.\n";
-	return false;
-}
-std::istringstream ss3(line);
-{
-	int x;
-	while (ss3 >> x){
-		frequency.push_back(x);
+	if (values.empty()) {
+		std::cerr << "Error: No 'values' provided in '" << input << "'.\n";
+		return false;
 	}
-}
-if (frequency.empty()) {
-	std::cerr << "Error: No 'frequency' provided in '" << input << "'.\n";
-	return false;
-}
-if (!ss3.eof()) {
-	std::cerr << "Error: Invalid charagter(s) in 'frequency' line: '" << line << "'.\n";
-	return false;
-}
+	if (!ss2.eof()) {
+		std::cerr << "Error: Invalid character(s) in 'values' line: '" << line << "'.\n";
+		return false;
+	}
 
-return true;
+	//reading frequency
+	if (!readLine(inFile, line)) {
+		std::cerr << "Error: Missing or empty line for 'frequency' in '" << input << "'.\n";
+		return false;
+	}
+	std::istringstream ss3(line);
+	{
+		int x;
+		while (ss3 >> x){
+			frequency.push_back(x);
+		}
+	}
+	if (frequency.empty()) {
+		std::cerr << "Error: No 'frequency' provided in '" << input << "'.\n";
+		return false;
+	}
+	if (!ss3.eof()) {
+		std::cerr << "Error: Invalid charagter(s) in 'frequency' line: '" << line << "'.\n";
+			return false;
+	}
+
+	return true;
 }
 
 //RANDOM NUMBER GENERATOR SECTION
@@ -106,7 +106,6 @@ std::map<int, int> generateFrequencies(int n, RandomNumberGenerator& rng) {
 
 //CALCULATION SECTION
 double calculateMaxDifference(int n, const std::vector<int>& values, const std::vector<int>& frequency, const std::map<int, int>& actualFreq) {
-	
 	int totalGivenFrequency = 0;
 	for (int f : frequency) { // loop through all vector elements
 		totalGivenFrequency += f; // making sum (5)
@@ -118,25 +117,25 @@ double calculateMaxDifference(int n, const std::vector<int>& values, const std::
 	}
 	if (n == 0) {
 		return 0.0; 
-}
-
-double maxDiff = 0.0;
-for (size_t i = 0; i < values.size(); i++) {
-	double expectedProbability = static_cast<double> (frequency[i])/ totalGivenFrequency; // 1/5 = 0.2
-
-	int obtainedCount = 0;
-	auto it = actualFreq.find(values[i]);
-	if (it != actualFreq.end()) {
-		obtainedCount = it->second;
 	}
-	double obtainedProbability = static_cast<double>(obtainedCount) / n; //container.at(index) checks if the provided index is within the valid range of indices for that container. (actual amount when number values[i] dropped)
 
-	double diff = std::fabs(expectedProbability - obtainedProbability); // |0.4 - 0.5|=0.1
-	if (diff > maxDiff) {
-		maxDiff = diff;
+	double maxDiff = 0.0;
+	for (size_t i = 0; i < values.size(); i++) {
+		double expectedProbability = static_cast<double> (frequency[i])/ totalGivenFrequency; // 1/5 = 0.2
+
+		int obtainedCount = 0;
+		auto it = actualFreq.find(values[i]);
+		if (it != actualFreq.end()) {
+			obtainedCount = it->second;
+		}
+		double obtainedProbability = static_cast<double>(obtainedCount) / n; //container.at(index) checks if the provided index is within the valid range of indices for that container. (actual amount when number values[i] dropped)
+
+		double diff = std::fabs(expectedProbability - obtainedProbability); // |0.4 - 0.5|=0.1
+		if (diff > maxDiff) {
+			maxDiff = diff;
+		}
 	}
-}
-return maxDiff;
+	return maxDiff;
 }
 
 
@@ -155,23 +154,23 @@ void printResult(int n, const std::vector<int>& values, const std::vector<int>& 
 	for (int x : frequency){
 		std::cout << x << " ";
 	}
-		std::cout << "\n";
+	std::cout << "\n";
 
-		std::cout << "Obtained frequencies: ";
-		for (int x : values){
-			auto it = actualFreq.find(x);
-			if (it !=actualFreq.end()) {
+	std::cout << "Obtained frequencies: ";
+	for (int x : values){
+		auto it = actualFreq.find(x);
+		if (it !=actualFreq.end()) {
 			std::cout << it->second << " ";
-			} else {
-				std::cout << " 0 ";
-			}
+		} else {
+			std::cout << " 0 ";
 		}
-		std::cout << "\n";
-	
-		std::cout.precision(4);
-		std::cout << std::fixed;
-		std::cout << " Max frequency difference: " << maxDiff * 100.0 << "%\n";
 	}
+	std::cout << "\n";
+	
+	std::cout.precision(4);
+	std::cout << std::fixed;
+	std::cout << " Max frequency difference: " << maxDiff * 100.0 << "%\n";
+}
 
 int main() {
 	int n;
@@ -181,6 +180,7 @@ int main() {
 		if (!readInput(inputFile, n, values, frequency)) {
 			return 1;
 	}
+	
 	try {
 		RandomNumberGenerator rng(values, frequency);
 
