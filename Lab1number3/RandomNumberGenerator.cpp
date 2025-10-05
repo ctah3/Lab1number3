@@ -2,7 +2,7 @@
 
 RandomNumberGenerator::RandomNumberGenerator(const std::vector<int>& numbers, const std::vector<int>& frequencies):
 
-	: numbers(numbers) {
+	 numbers(numbers) {
 	if (numbers.size() != frequencies.size()) {
 		throw std::invalid_argument("Vectors of numbers and frequencies must have the same size.");
 	}
