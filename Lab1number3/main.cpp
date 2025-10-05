@@ -20,9 +20,9 @@ bool readLine(std::ifstream& inFile,std::string& line) {
 	return false;
 }
 
-bool readInput(const std::string& input.txt, int& n,std::vector<int>& values, std::vector<int>& frequency) {
+bool readInput(const std::string& input, int& n,std::vector<int>& values, std::vector<int>& frequency) {
 	std::string line;
-	std::ifstream inFile(input.txt);
+	std::ifstream inFile(input);
 	
 	if (!inFile.is_open()) {
 		std::cerr << "Error: Could not open input file: '" << input << "'.\n";
