@@ -36,7 +36,7 @@ bool readInput(const std::string& input, int& n,std::vector<int>& values, std::v
 	}
 	std::istringstream ss1(line);
 	if (!(ss1 >> n)) {
-		std::cerr << "Error: Invalid format for 'n' (expected integer) in '" << Input << "'. Got: '" << line << "'.\n";
+		std::cerr << "Error: Invalid format for 'n' (expected integer) in '" << input << "'. Got: '" << line << "'.\n";
 		return false;
 	}
 	if (n <= 0) {
