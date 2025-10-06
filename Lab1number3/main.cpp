@@ -1,4 +1,4 @@
-// Compiler: g++ 11.2.0
+// Compiler: MSVC
 #include "RandomNumberGenerator.h"
 #include <iostream>
 #include <fstream>
